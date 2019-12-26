@@ -4,6 +4,11 @@
     <div class="search">
       <label for="name">Search</label>
       <input name="search" id="search" v-model="searchValue" v-on:input="handleInput" />
+      <ul>
+        <li v-for="item in results" :key="item.data[0].nasa_id">
+          <p>{{ item.data[0].description }}</p>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -20,13 +25,14 @@ export default {
   data() {
     return {
       searchValue: '',
+      results: [],
     };
   },
   methods: {
     handleInput: debounce(function () {
       axios.get(`${API}?q=${this.searchValue}&media_type=image`)
         .then((response) => {
-          console.log(response.data.collection.items);
+          this.results = response.data.collection.items;
         })
         .catch((error) => {
           console.log(error);
