@@ -37,20 +37,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.wrapper{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100vh;
-  padding: 30px;
-  margin: 0;
-  background-image: url('../assets/heroimage.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 80% 0%;
-   }
+
 
 
 </style>
